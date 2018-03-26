@@ -34,6 +34,8 @@ while continuar
             promedio = 0
             arreglo = line.split(', ')
             promedio = (arreglo[1].to_i + arreglo[2].to_i + arreglo[3].to_i + arreglo[4].to_i + arreglo[5].to_i)/5
+            #falta parametrizar el largo del arreglo como arreglo.length-1
+            #recomiendo uso de float para los promedios
             arreglo_totales.push([arreglo[0], promedio])
         end
 
@@ -53,6 +55,7 @@ while continuar
         total_inasistencias = 0
         data.each do |line|
             line.split(', ').each do |word|
+                #se puede limpiar la linea para evitar el \n con map(&:chomp)
                 if word == 'A' ||  word == "A\n"
                     total_inasistencias += 1
                 end
